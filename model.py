@@ -1,5 +1,8 @@
 import numpy as np
 import pandas as pd
+import keras
+from keras.models import Sequential
+from keras.layers import Dense, Dropout, BatchNormalization
 
 
 def load_data(path):
@@ -19,3 +22,33 @@ data, label = load_data('train.csv')
 print(data.shape, label.shape)
 print(data)
 print((data.dtype))
+
+model = Sequential()
+model.add(Dense(5, activation='relu', input_shape=(5,)))
+model.add(BatchNormalization())
+model.add(Dropout(0.25))
+
+model.add(Dense(32, activation='relu'))
+model.add(BatchNormalization())
+model.add(Dropout(0.25))
+
+model.add(Dense(64, activation='relu'))
+model.add(BatchNormalization())
+model.add(Dropout(0.25))
+
+model.add(Dense(128, activation='relu'))
+model.add(BatchNormalization())
+model.add(Dropout(0.25))
+
+model.add(Dense(64, activation='relu'))
+model.add(BatchNormalization())
+model.add(Dropout(0.25))
+
+model.add(Dense(32, activation='relu'))
+model.add(BatchNormalization())
+model.add(Dropout(0.25))
+
+model.add(Dense(1, activation='softmax'))
+
+model.compile(loss=keras.losses.binary_crossentropy, optimizer=keras.optimizers.Adam(), metrics=['accuracy'])
+model.fit(data, label, batch_size=8, epochs=32, verbose=1)
