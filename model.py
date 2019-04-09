@@ -40,6 +40,10 @@ model.add(Dense(128, activation='relu'))
 model.add(BatchNormalization())
 model.add(Dropout(0.25))
 
+model.add(Dense(128, activation='relu'))
+model.add(BatchNormalization())
+model.add(Dropout(0.25))
+
 model.add(Dense(64, activation='relu'))
 model.add(BatchNormalization())
 model.add(Dropout(0.25))
@@ -48,7 +52,9 @@ model.add(Dense(32, activation='relu'))
 model.add(BatchNormalization())
 model.add(Dropout(0.25))
 
-model.add(Dense(1, activation='softmax'))
+model.add(Dense(1, activation='sigmoid'))
 
 model.compile(loss=keras.losses.binary_crossentropy, optimizer=keras.optimizers.Adam(), metrics=['accuracy'])
-model.fit(data, label, batch_size=8, epochs=32, verbose=1)
+model.fit(data, label, batch_size=8, epochs=1024, verbose=1)
+
+model.save('model.h5')
