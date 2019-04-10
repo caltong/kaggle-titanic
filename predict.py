@@ -10,7 +10,7 @@ def load_test_data(path):
     temple_list = data_csv.values
     temple_list = temple_list.astype(np.float32)
     where_are_nan = np.isnan(temple_list)
-    temple_list[where_are_nan] = 0
+    temple_list[where_are_nan] = data_csv.mean()['Age']  # 去除Age无数据项干扰 用均值代替
     data = temple_list
     return data
 
