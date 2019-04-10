@@ -25,30 +25,28 @@ print((data.dtype))
 
 model = Sequential()
 model.add(Dense(5, activation='relu', input_shape=(5,)))
+
+model.add(Dense(1024, activation='relu'))
 model.add(BatchNormalization())
 model.add(Dropout(0.25))
 
-model.add(Dense(32, activation='relu'))
+model.add(Dense(1024, activation='relu'))
 model.add(BatchNormalization())
 model.add(Dropout(0.25))
 
-model.add(Dense(64, activation='relu'))
+model.add(Dense(1024, activation='relu'))
 model.add(BatchNormalization())
 model.add(Dropout(0.25))
 
-model.add(Dense(128, activation='relu'))
+model.add(Dense(1024, activation='relu'))
 model.add(BatchNormalization())
 model.add(Dropout(0.25))
 
-model.add(Dense(128, activation='relu'))
+model.add(Dense(1024, activation='relu'))
 model.add(BatchNormalization())
 model.add(Dropout(0.25))
 
-model.add(Dense(64, activation='relu'))
-model.add(BatchNormalization())
-model.add(Dropout(0.25))
-
-model.add(Dense(32, activation='relu'))
+model.add(Dense(1024, activation='relu'))
 model.add(BatchNormalization())
 model.add(Dropout(0.25))
 
